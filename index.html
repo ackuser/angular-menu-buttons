@@ -80,7 +80,7 @@
         </div>
 
         <div class="btn-group .col-xs-6 .col-sm-4" role="group">
-      <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
+      <button type="button" style="width:97%;" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
         <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable2}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         <span class="caret caret-down"></span>
       </button>
@@ -126,7 +126,7 @@
 
           </div>
           <div class="btn-group .col-xs-6 .col-sm-4" role="group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
+        <button type="button" style="width:97%;" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable3}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
               <span class="caret caret-down"></span>
         </button>
@@ -206,7 +206,7 @@ Num Visible Brands
 
 </div>
 <div class="btn-group .col-xs-6 .col-sm-4 dropup" role="group">
-  <button type="button pull-left" class="btn btn-braintree btn-sm dropdown-toggle" ng-style="{'opacity' : enable2 == 0 ? 0.4 : 1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>{{brand2}}
+  <button style="width:97%;" type="button pull-left" class="btn btn-braintree btn-sm dropdown-toggle" ng-style="{'opacity' : enable2 == 0 ? 0.4 : 1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>{{brand2}}
     <span class="caret"></span>
   </button>
   <span class="close" ng-show="num_visible_vars == 1" ng-click="updateCancel($event, 2, name)">&times;</span>
@@ -220,10 +220,11 @@ Num Visible Brands
 
 </div>
 <div class="btn-group .col-xs-6 .col-sm-4 dropup" role="group">
-  <button type="button pull-left" class="btn btn-amazon btn-sm dropdown-toggle" ng-style="{'opacity' : enable3 == 0 ? 0.4 : 1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>{{brand3}}
+  <button style="width:97%;" type="button pull-left" class="btn btn-amazon btn-sm dropdown-toggle" ng-style="{'opacity' : enable3 == 0 ? 0.4 : 1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>{{brand3}}
     <span class="caret"></span>
   </button>
     <span class="close" ng-show="num_visible_vars == 1" ng-click="updateCancel($event, 3, name)">&times;</span>
+
   <ul class="dropdown-menu" ng-show="num_visible_vars == 1">
     <li ng-repeat="(index,name) in brand_titles | filter: notCurrentBrand"
     ng-cloak ng-click="updateBrand($event, 3, name)">
@@ -233,6 +234,12 @@ Num Visible Brands
 
 </div>
 </div>
+
+
+<a href="#" class="btn btn-sq-xs btn-info">
+          <span class="close" ng-show="num_visible_vars == 1" ng-click="updateCancel($event, 3, name)">&times;</span>
+        </a>
+
 
 </div>
 
