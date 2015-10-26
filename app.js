@@ -7,10 +7,7 @@ app.controller("BrandsCtrl", function($scope) {
     'Square','Stripe','Paypal','Apple Pay','Google Wallet'
   ];
 
-
-
   $scope.brand1 = 'Paypal';
-
   $scope.brand2 = '';
   $scope.enable2 = false;
   $scope.brand3 = '';
@@ -24,9 +21,11 @@ app.controller("BrandsCtrl", function($scope) {
   $scope.enable_var3 = false;
   $scope.num_visible_vars = 1;
 
+  console.log($scope.variable1);
+
 
   $scope.variable_titles = [
-    '','Volume of speech','Average influence','Proportion of top influencers','Proportion positive sentiment','Total interactions last 5 days','Awareness','Consideration','Sentiment','Usage','Volume of searches','Volume of searches for downloads'
+    'Volume of speech','Average influence','Proportion of top influencers','Proportion positive sentiment','Total interactions last 5 days','Awareness','Consideration','Sentiment','Usage','Volume of searches','Volume of searches for downloads'
   ];
 
   $scope.variable_speech = [
@@ -41,7 +40,7 @@ app.controller("BrandsCtrl", function($scope) {
     'Volume of searches','Volume of searches for downloads'
   ];
 
-  $scope.variable_stated = [
+  $scope.variable_shared = [
     'Total interactions last 5 days'
   ];
 
@@ -66,53 +65,53 @@ app.controller("BrandsCtrl", function($scope) {
             $scope.num_visible_brands++;
             break;
           }
-        }
+        };
 
 
         $scope.updateCancel = function ($event, num_brand ,name)
         {
           switch(num_brand) {
-              case 2:
-                $scope.brand2 = name;
-                $scope.enable2 = false;
+            case 2:
+              $scope.brand2 = name;
+              $scope.enable2 = false;
+              $scope.num_visible_brands--;
+              break;
+              case 3:
+                $scope.brand3 = name;
+                $scope.enable3 = false;
                 $scope.num_visible_brands--;
                 break;
-                case 3:
-                  $scope.brand3 = name;
-                  $scope.enable3 = false;
-                  $scope.num_visible_brands--;
-                  break;
-                }
               }
+            };
 
-              $scope.notCurrentBrand = function(brand) {
-                   return brand !== $scope.brand1 && brand !== $scope.brand2  && brand !== $scope.brand3;
-                 };
-
-
-
+            $scope.notCurrentBrand = function(brand) {
+              return brand !== $scope.brand1 && brand !== $scope.brand2  && brand !== $scope.brand3;
+            };
 
 
 
-                 $scope.updateVariable = function ($event, num_var ,name)
-                 {
-                   switch(num_var) {
-                       case 1:
-                           $scope.variable1 = name;
-                           break;
-                       case 2:
-                           $scope.variable2 = name;
-                           break;
-                       case 3:
-                           $scope.variable3 = name;
-                           break;
-                   }
-                   //$event.stopPropagation();
-                 }
-
-                 $scope.notCurrentVariable = function(variable) {
-                      return variable !== $scope.variable1 && variable !== $scope.variable2  && variable !== $scope.variable3;
-                    };
 
 
-            });
+
+            $scope.updateVariable = function ($event, num_var ,name)
+            {
+              switch(num_var) {
+                case 1:
+                  $scope.variable1 = name;
+                  break;
+                  case 2:
+                    $scope.variable2 = name;
+                    break;
+                    case 3:
+                      $scope.variable3 = name;
+                      break;
+                    }
+                    //$event.stopPropagation();
+                  };
+
+                  $scope.notCurrentVariable = function(variable) {
+                    return variable !== $scope.variable1 && variable !== $scope.variable2  && variable !== $scope.variable3;
+                  };
+
+
+                });
