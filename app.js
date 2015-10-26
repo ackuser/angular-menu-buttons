@@ -67,6 +67,24 @@ app.controller("BrandsCtrl", function($scope) {
           };
         };
 
+        $scope.updateVariable = function ($event, num_var ,name){
+          switch(num_var) {
+            case 1:
+              $scope.variable1 = name;
+              break;
+              case 2:
+                $scope.variable2 = name;
+                $scope.enable_var2 = true;
+                $scope.num_visible_vars++;
+                break;
+                case 3:
+                  $scope.variable3 = name;
+                  $scope.enable_var3 = true;
+                  $scope.num_visible_vars++;
+                  break;
+                };
+                //$event.stopPropagation();
+              };
 
         $scope.updateCancel = function ($event, num_brand ,name)
         {
@@ -84,29 +102,28 @@ app.controller("BrandsCtrl", function($scope) {
               };
             };
 
+            $scope.updateCancelVar = function ($event, num_var ,name)
+            {
+              switch(num_var) {
+                case 2:
+                  $scope.variable2 = name;
+                  $scope.enable_var2 = false;
+                  $scope.num_visible_vars--;
+                  break;
+                  case 3:
+                    $scope.variable3 = name;
+                    $scope.enable_var3 = false;
+                    $scope.num_visible_vars--;
+                    break;
+                  };
+                };
+
+
+
             $scope.notCurrentBrand = function(brand) {
               return brand !== $scope.brand1 && brand !== $scope.brand2  && brand !== $scope.brand3;
             };
 
-
-
-
-
-
-            $scope.updateVariable = function ($event, num_var ,name){
-              switch(num_var) {
-                case 1:
-                  $scope.variable1 = name;
-                  break;
-                  case 2:
-                    $scope.variable2 = name;
-                    break;
-                    case 3:
-                      $scope.variable3 = name;
-                      break;
-                    };
-                    //$event.stopPropagation();
-                  };
 
                   $scope.notCurrentVariable = function(variable) {
                     return variable !== $scope.variable1 && variable !== $scope.variable2  && variable !== $scope.variable3;
