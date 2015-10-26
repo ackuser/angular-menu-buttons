@@ -64,7 +64,7 @@ app.controller("BrandsCtrl", function($scope) {
             $scope.enable3 = true;
             $scope.num_visible_brands++;
             break;
-          }
+          };
         };
 
 
@@ -81,7 +81,7 @@ app.controller("BrandsCtrl", function($scope) {
                 $scope.enable3 = false;
                 $scope.num_visible_brands--;
                 break;
-              }
+              };
             };
 
             $scope.notCurrentBrand = function(brand) {
@@ -93,8 +93,7 @@ app.controller("BrandsCtrl", function($scope) {
 
 
 
-            $scope.updateVariable = function ($event, num_var ,name)
-            {
+            $scope.updateVariable = function ($event, num_var ,name){
               switch(num_var) {
                 case 1:
                   $scope.variable1 = name;
@@ -105,7 +104,7 @@ app.controller("BrandsCtrl", function($scope) {
                     case 3:
                       $scope.variable3 = name;
                       break;
-                    }
+                    };
                     //$event.stopPropagation();
                   };
 

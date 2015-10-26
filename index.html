@@ -15,9 +15,9 @@
   <link rel="stylesheet" href="main.css">
 </head>
 
-<body>
+<body ng-app="BrandsApp" ng-controller="BrandsCtrl">
 
-  <div ng-app="BrandsApp" ng-controller="BrandsCtrl">
+  <div>
 
     Variables
     <br/>
@@ -29,129 +29,180 @@
 
     {{variable_speech}}
 
-    <div class="btn-group btn-group-justified" role="group">
+    {{variable_titles}}
+
+    {{variable_speech}}
+
+    {{variable_stated}}
+
+    {{variable_search}}
+
+    {{variable_shared}}
+
+  </div>
+
+
+
+  <div class="btn-group btn-group-justified" role="group">
 
       <div class="btn-group .col-xs-6 .col-sm-4" role="group">
-        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
-          <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable1}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable1}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
           <span class="caret caret-down"></span>
-          <span class="close">&times;</span>
-        </button>
-        <div class="dropdown-menu multi-column">
-          <div class="row">
-            <div class="col-md-4">
-
-
-              <ul class="dropdown-menu"><span class="glyphicon glyphicon-search"></span> <strong>SEARCH</strong>
-                <li ng-repeat="name in variable_titles"
-                ng-cloak ng-click="updateVariable($event, 1, name)">
-                <a>{{name}}</a>
-              </li>
-            </ul>
-
+          <span class="close">&times;</span></button>
+          <div class="dropdown-menu multi-column">
+            <div class="row">
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-list-alt"></span> <strong>SPEECH</strong>
+                  <li ng-repeat="name in variable_speech | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 1, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-pencil"></span> <strong>STATED</strong>
+                  <li ng-repeat="name in variable_stated | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 1, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-search"></span> <strong>SEARCH</strong>
+                  <li ng-repeat="name in variable_search | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 1, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-eye-open"></span> <strong>EXPOSURE</strong>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-share"></span> <strong>SHARE</strong>
+                  <li ng-repeat="name in variable_share | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 1, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-user"></span> <strong>EXPERIENCE</strong>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
+        </div>
+        <div class="btn-group .col-xs-6 .col-sm-4" role="group">
+
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable2}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="caret caret-down"></span>
+          <span class="close">&times;</span></button>
+
+          <div class="dropdown-menu multi-column">
+            <div class="row">
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-list-alt"></span> <strong>SPEECH</strong>
+                  <li ng-repeat="name in variable_speech | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 2, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-pencil"></span> <strong>STATED</strong>
+                  <li ng-repeat="name in variable_stated | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 2, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-search"></span> <strong>SEARCH</strong>
+                  <li ng-repeat="name in variable_search | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 2, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-eye-open"></span> <strong>EXPOSURE</strong>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-share"></span> <strong>SHARE</strong>
+                  <li ng-repeat="name in variable_share | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 2, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-user"></span> <strong>EXPERIENCE</strong>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="btn-group .col-xs-6 .col-sm-4" role="group">
+
+
+    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
+      <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable3}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <span class="caret caret-down"></span>
+          <span class="close">&times;</span></button>
+          <div class="dropdown-menu multi-column">
+            <div class="row">
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-list-alt"></span> <strong>SPEECH</strong>
+                  <li ng-repeat="name in variable_speech | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 3, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-pencil"></span> <strong>STATED</strong>
+                  <li ng-repeat="name in variable_stated | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 3, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-search"></span> <strong>SEARCH</strong>
+                  <li ng-repeat="name in variable_search | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 3, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-eye-open"></span> <strong>EXPOSURE</strong>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-share"></span> <strong>SHARE</strong>
+                  <li ng-repeat="name in variable_share | filter: notCurrentVariable"
+                   ng-cloak ng-click="updateVariable($event, 3, name)">
+                   <a>{{name}}</a>
+                   </li>
+                </ul>
+                <ul class="dropdown-menu"><span class="glyphicon glyphicon-user"></span> <strong>EXPERIENCE</strong>
+                </ul>
+              </div>
+            </div>
+          </div>
     </div>
 
+  </div>
 
-    <div class="btn-group .col-xs-6 .col-sm-4" role="group">
-
-      <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable2}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-        <span class="caret caret-down"></span>
-        <span class="close">&times;</span></button>
-
-        <div class="dropdown-menu multi-column">
-          <div class="row">
-            <div class="col-md-4">
-              <ul class="dropdown-menu"><span class="glyphicon glyphicon-list-alt"></span> <strong>SPEECH</strong>
-                <li ng-repeat="name in variable_speech | filter: notCurrentVariable"
-                ng-cloak ng-click="updateVariable($event, 2, name)">
-                <a>{{name}}</a>
-              </li>
+  <div class="btn-group .col-xs-6 .col-sm-4" role="group">
+<button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable1}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+      <span class="caret caret-down"></span>
+      <span class="close">&times;</span></button>
+      <div class="dropdown-menu multi-column">
+            <ul class="list-group">
+              <li ng-repeat="name in variable_titles">
+               <a>{{name}}</a>
+               </li>
             </ul>
-            <ul class="dropdown-menu"><span class="glyphicon glyphicon-pencil"></span> <strong>STATED</strong>
-              <li ng-repeat="name in variable_stated | filter: notCurrentVariable"
-              ng-cloak ng-click="updateVariable($event, 2, name)">
-              <a>{{name}}</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <ul class="dropdown-menu"><span class="glyphicon glyphicon-search"></span> <strong>SEARCH</strong>
-            <li ng-repeat="name in variable_search | filter: notCurrentVariable"
-            ng-cloak ng-click="updateVariable($event, 2, name)">
-            <a>{{name}}</a>
-          </li>
-        </ul>
-        <ul class="dropdown-menu"><span class="glyphicon glyphicon-eye-open"></span> <strong>EXPOSURE</strong>
-        </ul>
       </div>
-      <div class="col-md-4">
-        <ul class="dropdown-menu"><span class="glyphicon glyphicon-share"></span> <strong>SHARE</strong>
-          <li ng-repeat="name in variable_share | filter: notCurrentVariable"
-          ng-cloak ng-click="updateVariable($event, 2, name)">
-          <a>{{name}}</a>
-        </li>
-      </ul>
-      <ul class="dropdown-menu"><span class="glyphicon glyphicon-user"></span> <strong>EXPERIENCE</strong>
-      </ul>
+
     </div>
-  </div>
-</div>
-
-</div>
-<div class="btn-group .col-xs-6 .col-sm-4" role="group">
 
 
-  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" ng-click="updateChartVolume()" autofocus>
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{variable3}} <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-    <span class="caret caret-down"></span>
-    <span class="close">&times;</span></button>
-    <div class="dropdown-menu multi-column">
-      <div class="row">
-        <div class="col-md-4">
-          <ul class="dropdown-menu"><span class="glyphicon glyphicon-list-alt"></span> <strong>SPEECH</strong>
-            <li ng-repeat="name in variable_speech | filter: notCurrentVariable"
-            ng-cloak ng-click="updateVariable($event, 3, name)">
-            <a>{{name}}</a>
-          </li>
-        </ul>
-        <ul class="dropdown-menu"><span class="glyphicon glyphicon-pencil"></span> <strong>STATED</strong>
-          <li ng-repeat="name in variable_stated | filter: notCurrentVariable"
-          ng-cloak ng-click="updateVariable($event, 3, name)">
-          <a>{{name}}</a>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <ul class="dropdown-menu"><span class="glyphicon glyphicon-search"></span> <strong>SEARCH</strong>
-        <li ng-repeat="name in variable_search | filter: notCurrentVariable"
-        ng-cloak ng-click="updateVariable($event, 3, name)">
-        <a>{{name}}</a>
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <ul class="dropdown-menu"><span class="glyphicon glyphicon-share"></span> <strong>SHARE</strong>
-      <li ng-repeat="name in variable_share | filter: notCurrentVariable"
-      ng-cloak ng-click="updateVariable($event, 3, name)">
-      <a>{{name}}</a>
-    </li>
-  </ul>
-  <ul class="dropdown-menu"><span class="glyphicon glyphicon-user"></span> <strong>EXPERIENCE</strong>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-
-
- <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 Brands
 <br/>
@@ -182,7 +233,7 @@ Num Visible Brands
   <button type="button pull-left" class="btn btn-braintree btn-sm dropdown-toggle" ng-style="{'opacity' : enable2 == 0 ? 0.4 : 1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>{{brand2}}
     <span class="caret"></span>
   </button>
-  <button class="btn btn-sm" ng-click="num_visible_brands > 1 && updateCancel($event, 2, name)"s>
+  <button class="btn btn-sm" ng-click="num_visible_brands > 1 && updateCancel($event, 2, name)">
     <span class="close">&times;</span>
   </button>
 
@@ -195,12 +246,10 @@ Num Visible Brands
 
 </div>
 <div class="btn-group .col-xs-6 .col-sm-4 dropup" role="group">
-  <button type="button" class="btn btn-amazon btn-sm dropdown-toggle" ng-style="{'opacity' : enable3 == 0 ? 0.4 : 1}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" autofocus>{{brand3}}
-    <span class="caret"></span>
+  <button type="button" class="btn btn-amazon btn-sm " ng-style="{'opacity' : enable3 == 0 ? 0.4 : 1}" aria-haspopup="true" aria-expanded="false" autofocus>{{brand3}}
+    <span class="close" ng-click="num_visible_brands > 1 && updateCancel($event, 3, name)">&times;</span>
   </button>
-  <button class="btn btn-sm" ng-click="num_visible_brands > 1 && updateCancel($event, 3, name)"s>
-    <span class="close">&times;</span>
-  </button>
+    <span class="caret" data-toggle="dropdown"></span>
   <ul class="dropdown-menu">
     <li ng-repeat="name in brand_titles | filter: notCurrentBrand"
     ng-cloak ng-click="updateBrand($event, 3, name)">
